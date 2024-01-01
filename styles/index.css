@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  /* line-height: calc(1em + 0.5rem); */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  box-sizing: content-box;
+}

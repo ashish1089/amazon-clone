@@ -1,3 +1,10 @@
+import "../styles/App.css";
+import Header from "./Header";
+
 export default function App() {
-  return "Amazon Clone";
+  return (
+    <div className="app">
+      <Header />
+    </div>
+  );
 }
