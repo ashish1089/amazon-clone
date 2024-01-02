@@ -36,15 +36,15 @@ export default function Home() {
           rating={3}
         />
         <Product
-          id='4'
-          title='Apple iPhone 13 (128GB) - (Product) RED'
+          id="4"
+          title="Apple iPhone 13 (128GB) - (Product) RED"
           price={52999}
           image="https://m.media-amazon.com/images/I/71gm8v4uPBL._SX679_.jpg"
           rating={4}
         />
         <Product
-          id='5'
-          title='Apple 2021 10.2-inch (25.91 cm) iPad with A13 Bionic chip (Wi-Fi, 64GB) - Space Grey (9th Generation)'
+          id="5"
+          title="Apple 2021 10.2-inch (25.91 cm) iPad with A13 Bionic chip (Wi-Fi, 64GB) - Space Grey (9th Generation)"
           price={30900}
           image="https://m.media-amazon.com/images/I/61NGnpjoRDL._SX466_.jpg"
           rating={4}
@@ -52,8 +52,8 @@ export default function Home() {
       </div>
       <div className="home__row">
         <Product
-          id='6'
-          title='Apple MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Gold'
+          id="6"
+          title="Apple MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Gold"
           price={83990}
           image="https://m.media-amazon.com/images/I/71vFKBpKakL._SX522_.jpg"
           rating={4}
