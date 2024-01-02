@@ -1,21 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { useState } from "react";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "./firebase";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   function signIn(e) {
     e.preventDefault();
-
-    // firebase login
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        navigate("/")
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }
-  
+
   function register(e) {
     e.preventDefault();
 
-    // firebase register
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // it successfully created a user with email and password
+        if (userCredential) {
+          navigate("/");
+        }
+      })
+      .catch((error) => alert(error.message));
   }
 
   return (
@@ -45,7 +63,13 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit" className="login__signInButton" onClick={signIn}>Sign In</button>
+          <button
+            type="submit"
+            className="login__signInButton"
+            onClick={signIn}
+          >
+            Sign In
+          </button>
         </form>
         <p>
           By continuing, you agree to Amazon's Conditions of Use and Privacy
