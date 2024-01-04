@@ -14,26 +14,24 @@ export default function Home() {
       <div className="home__row">
         <Product
           id="1"
-          title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses [Paperback] Ries, Eric"
-          price={502}
-          image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
+          title="Atomic Habits: the life-changing million-copy #1 bestseller"
+          price={184}
+          image="https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UY327_FMwebp_QL65_.jpg"
           rating={5}
         />
         <Product
           id="2"
-          title="Universal Travel Adapter, International All in One Worldwide Travel Adapter and Wall Charger with USB Ports with Multi Type Power Outlet USB 2.1A,100-250 Voltage Travel Charger (Black)"
-          price={587}
-          image="https://m.media-amazon.com/images/I/41uGjvXbeBL._AC_SR400,600_.jpg"
+          title="Premier Stainless Steel Kettle PGK-102S (SS), 1.2 LTR (code-054012)"
+          price={1160}
+          image="https://m.media-amazon.com/images/I/31RZA6pdjXS._AC_SY200_.jpg"
           rating={4}
         />
-      </div>
-      <div className="home__row">
         <Product
           id="3"
-          title="The Indus Valley Pre-Seasoned Cast Iron Tawa for Dosa/Chapathi"
-          price={999}
-          image="https://m.media-amazon.com/images/I/41RfWmdZ4uL._AC_SR400,600_.jpg"
-          rating={3}
+          title="Galaxy Z Flip5 5G (Mint, 8GB RAM, 256GB Storage)"
+          price={99999}
+          image="https://m.media-amazon.com/images/I/61Tl1z+Hn0L._AC_UY327_FMwebp_QL65_.jpg"
+          rating={4}
         />
         <Product
           id="4"
@@ -42,6 +40,8 @@ export default function Home() {
           image="https://m.media-amazon.com/images/I/71gm8v4uPBL._SX679_.jpg"
           rating={4}
         />
+      </div>
+      <div className="home__row">
         <Product
           id="5"
           title="Apple 2021 10.2-inch (25.91 cm) iPad with A13 Bionic chip (Wi-Fi, 64GB) - Space Grey (9th Generation)"
@@ -49,13 +49,56 @@ export default function Home() {
           image="https://m.media-amazon.com/images/I/61NGnpjoRDL._SX466_.jpg"
           rating={4}
         />
-      </div>
-      <div className="home__row">
         <Product
           id="6"
-          title="Apple MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Gold"
+          title="Grant Sport Analog Blue Dial Men's Watch-FS5237"
+          price={8121}
+          image="https://m.media-amazon.com/images/I/81Q7WuKlezL._AC_UL480_FMwebp_QL65_.jpg"
+          rating={4}
+        />
+        <Product
+          id="6"
+          title="Yoga Slim7 Carbon Intel Evo i7 1260P 13.3 (33.78cm) QHD 400Nit Touch Laptop(16GB/1TB SSD/Win 11/Office 2021/Backlit KB/IR Cam/3Yr Warranty/Alexa/3 Month Game Pass/Moon White"
           price={83990}
-          image="https://m.media-amazon.com/images/I/71vFKBpKakL._SX522_.jpg"
+          image="https://m.media-amazon.com/images/I/61OmYRccCzL._AC_UY327_QL65_.jpg"
+          rating={4}
+        />
+      </div>
+      <div className="home__row">
+
+      <Product
+          id="7"
+          title="The Indus Valley Super Smooth Cast Iron Tawa for Dosa/Chapathi"
+          price={1099}
+          image="https://m.media-amazon.com/images/I/41ZiNufv4fL._AC_SY200_.jpg"
+          rating={4}
+        />
+        <Product
+          id="8"
+          title="MB-Vite Daily Multivitamin with 51 Ingredients and 6 Essential Blends"
+          price={499}
+          image="https://m.media-amazon.com/images/I/4119sh667cL._AC_SR400,600_.jpg"
+          rating={4}
+        />
+        <Product
+          id="9"
+          title="[2 Pack] Mini USB Type C Adapter Plug, Type C Female to USB A Male Charger"
+          price={198}
+          image="https://m.media-amazon.com/images/I/3172BJyynBS._AC_SR400,600_.jpg"
+          rating={4}
+        />
+        <Product
+          id="10"
+          title="Men's Tarzan-11 White Casual Sneaker High-Neck Shoes"
+          price={799}
+          image="https://m.media-amazon.com/images/I/41JvGgDobKL._AC_SR400,600_.jpg"
+          rating={3}
+        />
+        <Product
+          id="11"
+          title="GARBNOIRE 12 INCH Stainless Steel Towel Bar | Bathroom Towel Rod Holder"
+          price={799}
+          image="https://m.media-amazon.com/images/I/3166Bki7BrL._AC_SR400,600_.jpg"
           rating={4}
         />
       </div>

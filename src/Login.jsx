@@ -65,10 +65,10 @@ export default function Login() {
 
           <button
             type="submit"
-            className="login__signInButton"
+            className="btn-bounce login__signInButton"
             onClick={signIn}
           >
-            Sign In
+            <span className="btn-label">Sign In</span>
           </button>
         </form>
         <p>
@@ -76,8 +76,8 @@ export default function Login() {
           Notice.
         </p>
 
-        <button className="login__registerButton" onClick={register}>
-          Create your Amazon Account
+        <button className="btn-bounce login__registerButton" onClick={register}>
+          <span className="btn-label">Create your Amazon Account</span>
         </button>
       </div>
     </div>

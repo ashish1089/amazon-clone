@@ -25,20 +25,20 @@ const reducer = (state, action) => {
       } else {
         console.warn(
           `Can't remove product (id: ${action.id} as its not in basket!`
-        )
+        );
       }
-
+      
+      return {
+        ...state,
+        basket: newBasket,
+      };
+    
     case "SET_USER":
       return {
         ...state,
-        user: action.user 
-      }
+        user: action.user,
+      };
 
-      return {
-        ...state,
-        basket: newBasket
-      }
-      
     default:
       return state;
   }

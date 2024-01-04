@@ -19,13 +19,10 @@ align-items: center;
   margin-right: 5px;
 }
 
-.subtotal > button{
-  background: #f0c14b;
-  border-radius: 2px;
+.subtotal .btn-label{
   width: 100%;
   height: 30px;
-  border: 1px solid ;
+  padding-top: 5px;
   margin-top: 10px;
-  border-color: #a88734 #c7ec31 #846a29;
   color: #111;
 }

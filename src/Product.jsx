@@ -30,13 +30,13 @@ export default function Product({ id, title, image, price, rating }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <p key={i}>⭐</p>
             ))}
         </div>
       </div>
 
       <img src={image} alt="" />
-      <button onClick={addToBasket}>Add to Basket</button>
+      <button className="btn-bounce" onClick={addToBasket}><span className="btn-label">Add to Basket</span></button>
     </div>
   );
 }

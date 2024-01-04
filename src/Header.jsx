@@ -15,7 +15,7 @@ export default function Header() {
     }
   }
 
-  function userName(email) {
+  function extractNameFromEmail(email) {
     const atIndex = email.indexOf("@");
 
     return atIndex !== -1 ? email.slice(0, atIndex) : "";
@@ -38,7 +38,7 @@ export default function Header() {
         <Link to={!user && '/login'}>
           <div onClick={handleAuthentication} className="header__option">
             <span className="header__optionLineOne">
-              Hello {user ? userName(user.email) : "Guest"}
+              Hello {user ? extractNameFromEmail(user.email) : "Guest"}
             </span>
             <span className="header__optionLineTwo">
               {user ? "Sign Out" : "SignIn"}

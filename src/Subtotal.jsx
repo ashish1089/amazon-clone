@@ -23,9 +23,9 @@ export default function Subtotal() {
         decimalScale={2}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"₹"}
+        prefix={"₹ "}
       />
-      <button>Proceed to Checkout</button>
+      <button className="btn-bounce"><span className="btn-label">Proceed to Checkout</span></button>
     </div>
   );
 }
