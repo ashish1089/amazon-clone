@@ -1,5 +1,5 @@
-import "../styles/Product.css";
-import { useStateValue } from "./StateProvider";
+import "../../styles/components/Product.css";
+import { useStateValue } from "../StateProvider";
 
 export default function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -17,7 +17,7 @@ export default function Product({ id, title, image, price, rating }) {
       },
     });
   };
-  
+
   return (
     <div className="product">
       <div className="product__info">

@@ -1,10 +1,10 @@
-import "../styles/Header.css";
+import "../../styles/components/Header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import { Link } from "react-router-dom";
-import { useStateValue } from "./StateProvider";
-import {signOut } from "firebase/auth"
-import { auth } from "./firebase";
+import { useStateValue } from "../StateProvider";
+import { signOut } from "firebase/auth"
+import { auth } from "../firebase";
 
 export default function Header() {
   const [{ basket, user }, dispatch] = useStateValue();

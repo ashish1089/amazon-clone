@@ -1,5 +1,5 @@
-import "../styles/CheckoutProduct.css";
-import { useStateValue } from "./StateProvider";
+import "../../styles/components/CheckoutProduct.css";
+import { useStateValue } from "../StateProvider";
 
 export default function CheckoutProduct({ id, image, title, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
@@ -22,7 +22,7 @@ export default function CheckoutProduct({ id, image, title, price, rating }) {
           <strong>{price}</strong>
         </p>
         <div className="checkoutProduct__rating">
-        {Array(rating)
+          {Array(rating)
             .fill()
             .map((_, i) => (
               <p key={i}>⭐</p>

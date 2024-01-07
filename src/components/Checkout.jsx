@@ -1,5 +1,5 @@
-import "../styles/Checkout.css";
-import { useStateValue } from "./StateProvider";
+import "../../styles/components/Checkout.css";
+import { useStateValue } from "../StateProvider";
 import Subtotal from "./Subtotal";
 import CheckoutProduct from "./CheckoutProduct";
 
@@ -19,7 +19,7 @@ export default function Checkout() {
           <h3 className="checkout_username"> Hello, {user?.email}</h3>
           <h2 className="checkout__title">Shopping Basket</h2>
 
-          {basket.map((item,i) => (
+          {basket.map((item, i) => (
             <CheckoutProduct
               key={i}
               id={item.id}

@@ -1,4 +1,4 @@
-import "../styles/Home.css";
+import "../../styles/components/Home.css";
 import Product from "./Product.jsx";
 
 export default function Home() {
