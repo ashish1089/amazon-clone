@@ -28,7 +28,9 @@ export default function Payment() {
     const getClientSecret = async () => {
       // stripe expects the total in a currencies subunits
       const response = await axios.post(`/payments/create?total=${getBasketTotal(basket) * 100}`);
-
+      if (response) {
+        console.log(response);
+      }
       SetClientSecret(response.data.clientSecret)
 
     }
@@ -41,19 +43,39 @@ export default function Payment() {
     event.preventDefault();
     setProcessing(true);
 
-    const payload = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement)
+    try {
+      const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement)
+        }
+      });
+    
+      // Handle the payment response
+      if (error) {
+        console.error('Payment error:', error);
+        setSucceeded(false);
+        setError(`Payment failed: ${error.message}`);
+      } else if (paymentIntent.status === 'succeeded') {
+        console.log('Payment Intent:', paymentIntent);
+        setSucceeded(true);
+        setError(null);
+        navigate('/orders');
+      } else {
+        // Handle other paymentIntent statuses if needed
+        console.warn('Unexpected paymentIntent status:', paymentIntent.status);
+        setSucceeded(false);
+        setError('Unexpected payment status');
       }
-    }).then(({ paymentIntent }) => {
-      // paymentIntent = payment confirmation
-      console.log(paymentIntent);
-      setSucceeded(true);
-      setError(null)
-      setProcessing(false)
-    })
-
-    navigate('/orders')
+    
+    } catch (error) {
+      // Handle any other unexpected errors
+      console.error('Unexpected error:', error);
+      setSucceeded(false);
+      setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setProcessing(false);
+    }
+    
 
   }
 

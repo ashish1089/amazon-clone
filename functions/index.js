@@ -20,20 +20,41 @@ app.get("/", (req, res) => {
   res.status(200).send("Hello World");
 });
 
-app.post('/payments/create', async (req, res) => {
+app.post("/payments/create", async (req, res) => {
   const total = req.query.total;
 
-  console.log('Payment Request Recieved >>> ', total);
+  console.log("Payment Request Recieved >>> ", total);
 
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: total,
-    currency: 'usd',
-  })
+  try {
+    
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: total,
+      currency: "usd",
+      description: 'amazon-clone project' ,
+      shipping: {
+        name: 'Dummy',
+        address: {
+          line1: '123 ReactLane',
+          postal_code: '98140',
+          city: 'San Francisco',
+          state: 'CA',
+          country: 'US',
+        },
+      },
+    });
+
+    res.status(201).send({
+      clientSecret: paymentIntent.client_secret,
+    });
+  } catch (error) {
+    console.error("Error creating PaymentIntent:", error);
+    res.status(500).send("Internal Server Error");
+  }
 
   res.status(201).send({
     clientSecret: paymentIntent.client_secret,
-  })
-})
+  });
+});
 
 // Listen command
 exports.api = onRequest(app);
