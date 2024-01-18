@@ -66,7 +66,7 @@ export default function Home() {
       </div>
       <div className="home__row">
 
-      <Product
+        <Product
           id="7"
           title="The Indus Valley Super Smooth Cast Iron Tawa for Dosa/Chapathi"
           price={1099}

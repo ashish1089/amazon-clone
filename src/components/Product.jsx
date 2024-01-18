@@ -36,7 +36,9 @@ export default function Product({ id, title, image, price, rating }) {
       </div>
 
       <img src={image} alt="" />
-      <button className="btn-bounce" onClick={addToBasket}><span className="btn-label">Add to Basket</span></button>
+      <button className="btn-bounce" onClick={addToBasket}>
+        <span className="btn-label">Add to Basket</span>
+      </button>
     </div>
   );
 }

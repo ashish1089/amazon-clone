@@ -10,10 +10,7 @@ export default function Orders() {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-
     if (user) {
-
-
       const ordersRef = collection(db, "users", user?.uid, "orders");
       const q = query(ordersRef, orderBy("created", "desc"));
 

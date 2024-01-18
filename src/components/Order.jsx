@@ -19,7 +19,7 @@ export default function Order({ order }) {
           image={item.image}
           price={item.price}
           rating={item.rating}
-          hideButton = {true}
+          hideButton={true}
         />
       ))}
       <CurrencyFormat
@@ -34,7 +34,6 @@ export default function Order({ order }) {
         thousandSeparator={true}
         prefix={"$ "}
       />
-
     </div>
   )
 }

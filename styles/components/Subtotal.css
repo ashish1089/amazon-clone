@@ -10,16 +10,16 @@
   border-radius: 3px;
 }
 
-.subtotal__gift{
-display: flex;
-align-items: center;
+.subtotal__gift {
+  display: flex;
+  align-items: center;
 }
 
-.subtotal__gift > input{
+.subtotal__gift>input {
   margin-right: 5px;
 }
 
-.subtotal .btn-label{
+.subtotal .btn-label {
   width: 100%;
   height: 30px;
   padding-top: 5px;

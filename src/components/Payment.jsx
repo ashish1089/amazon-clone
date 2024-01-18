@@ -45,7 +45,6 @@ export default function Payment() {
     event.preventDefault();
     setProcessing(true);
 
-    // try {
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement)
@@ -62,7 +61,6 @@ export default function Payment() {
         created: paymentIntent.created,
       });
 
-
       setSucceeded(true);
       setError(null)
       setProcessing(false);
@@ -73,33 +71,6 @@ export default function Payment() {
 
       navigate('/orders')
     })
-
-    //   // Handle the payment response
-    //   if (error) {
-    //     console.error('Payment error:', error);
-    //     setSucceeded(false);
-    //     setError(`Payment failed: ${error.message}`);
-    //   } else if (paymentIntent.status === 'succeeded') {
-    //     console.log('Payment Intent:', paymentIntent);
-    //     setSucceeded(true);
-    //     setError(null);
-    //     navigate('/orders');
-    //   } else {
-    //     // Handle other paymentIntent statuses if needed
-    //     console.warn('Unexpected paymentIntent status:', paymentIntent.status);
-    //     setSucceeded(false);
-    //     setError('Unexpected payment status');
-    //   }
-
-    // } catch (error) {
-    //   // Handle any other unexpected errors
-    //   console.error('Unexpected error:', error);
-    //   setSucceeded(false);
-    //   setError('An unexpected error occurred. Please try again.');
-    // } finally {
-    //   setProcessing(false);
-    // }
-
 
   }
 
@@ -162,8 +133,8 @@ export default function Payment() {
                   thousandSeparator={true}
                   prefix={"₹"}
                 />
-                <button disabled={processing || disabled || succeeded}>
-                  <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                <button className="btn-bounce" disabled={processing || disabled || succeeded}>
+                  <span className="btn-label">{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
               </div>
 
