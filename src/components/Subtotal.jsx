@@ -25,7 +25,7 @@ export default function Subtotal() {
         decimalScale={2}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"₹ "}
+        prefix={"$ "}
       />
       <button className="btn-bounce" onClick={e => navigate('/payment')}><span className="btn-label">Proceed to Checkout</span></button>
     </div>

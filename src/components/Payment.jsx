@@ -7,6 +7,8 @@ import CurrencyFormat from "react-currency-format";
 import { useStateValue } from "../StateProvider";
 import { getBasketTotal } from "../reducer";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { collection, doc, setDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
 export default function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -43,39 +45,61 @@ export default function Payment() {
     event.preventDefault();
     setProcessing(true);
 
-    try {
-      const { paymentIntent, error } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: elements.getElement(CardElement)
-        }
-      });
-    
-      // Handle the payment response
-      if (error) {
-        console.error('Payment error:', error);
-        setSucceeded(false);
-        setError(`Payment failed: ${error.message}`);
-      } else if (paymentIntent.status === 'succeeded') {
-        console.log('Payment Intent:', paymentIntent);
-        setSucceeded(true);
-        setError(null);
-        navigate('/orders');
-      } else {
-        // Handle other paymentIntent statuses if needed
-        console.warn('Unexpected paymentIntent status:', paymentIntent.status);
-        setSucceeded(false);
-        setError('Unexpected payment status');
+    // try {
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
       }
-    
-    } catch (error) {
-      // Handle any other unexpected errors
-      console.error('Unexpected error:', error);
-      setSucceeded(false);
-      setError('An unexpected error occurred. Please try again.');
-    } finally {
+    }).then(({ paymentIntent }) => {
+      // paymentIntent = payment Confirmation
+
+      const ordersRef = collection(db, "users", user?.uid, "orders");
+      const orderRef = doc(ordersRef, paymentIntent.id);
+
+      setDoc(orderRef, {
+        basket: basket,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created,
+      });
+
+
+      setSucceeded(true);
+      setError(null)
       setProcessing(false);
-    }
-    
+
+      dispatch({
+        type: 'EMPTY_BASKET'
+      })
+
+      navigate('/orders')
+    })
+
+    //   // Handle the payment response
+    //   if (error) {
+    //     console.error('Payment error:', error);
+    //     setSucceeded(false);
+    //     setError(`Payment failed: ${error.message}`);
+    //   } else if (paymentIntent.status === 'succeeded') {
+    //     console.log('Payment Intent:', paymentIntent);
+    //     setSucceeded(true);
+    //     setError(null);
+    //     navigate('/orders');
+    //   } else {
+    //     // Handle other paymentIntent statuses if needed
+    //     console.warn('Unexpected paymentIntent status:', paymentIntent.status);
+    //     setSucceeded(false);
+    //     setError('Unexpected payment status');
+    //   }
+
+    // } catch (error) {
+    //   // Handle any other unexpected errors
+    //   console.error('Unexpected error:', error);
+    //   setSucceeded(false);
+    //   setError('An unexpected error occurred. Please try again.');
+    // } finally {
+    //   setProcessing(false);
+    // }
+
 
   }
 
