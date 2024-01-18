@@ -10,6 +10,11 @@ import Home from "./components/Home";
 import Checkout from "./components/Checkout";
 import Login from "./components/Login";
 import Payment from "./components/Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders";
+
+const promise = loadStripe("pk_test_51OVr9USEE6F3evz8DPWsMubXFkxqeWjl1o3B8meKz0AwoFHhDRM2tvlW1KcInQjdYT6HSgNNnoBDVRhRQymTYC5M00S1LXcBHw");
 
 export default function App() {
   const [{ }, dispatch] = useStateValue();
@@ -37,41 +42,37 @@ export default function App() {
     <BrowserRouter>
       <div className="app">
         <Routes>
-          <Route
-            path="/login"
-            element={
-              <>
-                <Login />
-              </>
-            }
+          <Route path="/orders" element={
+            <>
+              <Header />
+              <Orders />
+            </>
+          }
           />
-          <Route
-            path="/checkout"
-            element={
-              <>
-                <Header />
-                <Checkout />
-              </>
-            }
+          <Route path="/login" element={<Login />} />
+          <Route path="/checkout" element={
+            <>
+              <Header />
+              <Checkout />
+            </>
+          }
           />
-          <Route
-            path="/payment"
-            element={
-              <>
-                <Header />
+          <Route path="/payment" element={
+            <>
+              <Header />
+              <Elements stripe={promise}>
                 <Payment />
-              </>
-            }
+              </Elements>
+            </>
+          }
           />
-          <Route
-            path="/"
-            element={
-              <>
-                <Header />
-                <Home />
-                <Footer />
-              </>
-            }
+          <Route path="/" element={
+            <>
+              <Header />
+              <Home />
+              <Footer />
+            </>
+          }
           />
         </Routes>
       </div>
