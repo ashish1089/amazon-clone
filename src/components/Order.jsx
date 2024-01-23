@@ -32,7 +32,7 @@ export default function Order({ order }) {
         decimalScale={2}
         displayType={"text"}
         thousandSeparator={true}
-        prefix={"$ "}
+        prefix={"₹ "}
       />
     </div>
   )

@@ -1,6 +1,6 @@
 import "../../styles/components/Payment.css"
 import CheckoutProduct from "./CheckoutProduct";
-import axios from "./axios";
+import axios from "../axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CurrencyFormat from "react-currency-format";
@@ -30,9 +30,9 @@ export default function Payment() {
     const getClientSecret = async () => {
       // stripe expects the total in a currencies subunits
       const response = await axios.post(`/payments/create?total=${getBasketTotal(basket) * 100}`);
-      if (response) {
-        console.log(response);
-      }
+      // if (response) {
+      //   console.log(response);
+      // }
       SetClientSecret(response.data.clientSecret)
 
     }

@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function Subtotal() {
   const navigate = useNavigate();
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+
   return (
     <div className="subtotal">
       <CurrencyFormat
@@ -27,7 +28,7 @@ export default function Subtotal() {
         thousandSeparator={true}
         prefix={"₹ "}
       />
-      <button className="btn-bounce" onClick={e => navigate('/payment')}><span className="btn-label">Proceed to Checkout</span></button>
+      <button className="btn-bounce" onClick={e => navigate(user?'/payment':'/login')}><span className="btn-label">Proceed to Checkout</span></button>
     </div>
   );
 }
